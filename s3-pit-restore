@@ -263,7 +263,7 @@ def s3_copy_object(obj):
         'VersionId': obj["VersionId"]
     }
 
-    extra_args = { }
+    extra_args = { 'ACL':'public-read' }
 
     if args.sse is not None:
         extra_args['ServerSideEncryption'] = args.sse
