@@ -155,3 +155,23 @@ s3-pit-restore comes with a testing suite. You can run it with:
 
 ### Run all the test cases:
 	`$ ./s3-pit-restore -b my-bucket -B restore-bucket-s3 -d /tmp/ -P restore-path --test`
+
+## Recommended S3 Bucket Policy
+
+At a minimum, you will need to explicity allow the following S3 actions via your bucket policy:
+
+Resource: "arn:aws:s3:::[bucket name]/*"
+- s3:GetObject
+- s3:GetObjectVersion
+- s3:GetObjectAcl
+- s3:GetObjectVersionAcl
+- s3:PutObject
+- s3:PutObjectAcl
+- s3:PutObjectVersionAcl
+- s3:GetObjectTagging
+- s3:PutObjectTagging
+
+Resource: "arn:aws:s3:::[bucket name]"
+- s3:ListBucket
+- s3:ListBucketVersions
+
